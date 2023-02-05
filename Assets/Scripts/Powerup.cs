@@ -5,11 +5,10 @@ using UnityEngine;
 public class Powerup : MonoBehaviour
 {
     [SerializeField] private float _speed = 3f;
-    private Player _player;
 
     void Start()
     {
-        _player = GameObject.Find("Player").GetComponent<Player>();
+        
     }
 
     void Update()
@@ -26,7 +25,12 @@ public class Powerup : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            _player.CollectPowerup();
+            Player player = other.transform.GetComponent<Player>();
+            if(player != null)
+            {
+                player.TripleShotActive();
+            }
+            
             Destroy(this.gameObject);
         }
     }
