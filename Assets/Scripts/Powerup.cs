@@ -6,11 +6,6 @@ public class Powerup : MonoBehaviour
 {
     [SerializeField] private float _speed = 3f;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
