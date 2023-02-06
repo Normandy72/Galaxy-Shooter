@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 972413740}
   - component: {fileID: 972413739}
   - component: {fileID: 972413738}
+  - component: {fileID: 972413742}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -552,6 +553,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &972413742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972413737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1879237db2648434698849196a57e705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreText: {fileID: 2037920834}
 --- !u!1 &1012114231
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +600,7 @@ MonoBehaviour:
   _speed: 10
   _speedMultiplier: 2
   _lives: 3
+  _score: 0
   _tripleShotPrefab: {fileID: 1747568832521571209, guid: f9a155d7f0ed4be45a2b33b416a2ee15, type: 3}
   _laserPrefab: {fileID: 1710066687228142585, guid: 774d5d1d670a6844f9941dbc05959edb, type: 3}
   _fireRate: 0.15
@@ -958,7 +973,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 70'
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

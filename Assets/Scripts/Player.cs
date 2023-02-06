@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed = 10f;
     [SerializeField] private float _speedMultiplier = 2f;
     [SerializeField] private int _lives = 3;
+    [SerializeField] private int _score = 0;
 
     [Header("Laser")]
     [SerializeField] private GameObject _tripleShotPrefab;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     private bool _isTripleShotActive = false;
     private bool _isSpeedBoostActive = false;
     private bool _isShieldActive = false;
+    private UIManager _uiManager;
     
     void Start()
     {
@@ -29,10 +31,16 @@ public class Player : MonoBehaviour
 
         // _spawnManager = FindObjectOfType<SpawnManager>();
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
         if(_spawnManager == null)
         {
             Debug.LogError("The Spawn Manager is NULL");
+        }
+
+        if(_uiManager == null)
+        {
+            Debug.Log("The UI Manager is NULL");
         }
     }
 
@@ -142,5 +150,11 @@ public class Player : MonoBehaviour
     {
         _isShieldActive = true;
         _shieldVisualizer.SetActive(true);
+    }
+
+    public void AddScore(int points)
+    {
+        _score += points;
+        _uiManager.UpdateScore(_score);
     }
 }
