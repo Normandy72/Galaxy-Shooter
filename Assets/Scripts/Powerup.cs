@@ -29,19 +29,22 @@ public class Powerup : MonoBehaviour
             Player player = other.transform.GetComponent<Player>();
             if(player != null)
             {
-                if(_powerupID == 0)
+                switch(_powerupID)
                 {
-                    player.TripleShotActive();
+                    case 0: 
+                        player.TripleShotActive();
+                        break;
+                    case 1: 
+                        Debug.Log("Collected speed boost");
+                        break;
+                    case 2:
+                        Debug.Log("Shields collected");
+                        break;
+                    default:
+                        Debug.Log("Default Value");
+                        break;
                 }
-                else if(_powerupID == 1)
-                {
-                    Debug.Log("Collected speed boost");
-                }
-                else if(_powerupID == 2)
-                {
-                    Debug.Log("Shields collected");
-                }
-            }
+            }            
             
             Destroy(this.gameObject);
         }
