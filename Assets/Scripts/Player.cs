@@ -12,18 +12,15 @@ public class Player : MonoBehaviour
     [SerializeField] private int _lives = 3;
 
     [Header("Laser")]
+    [SerializeField] private GameObject _tripleShotPrefab;
     [SerializeField] private GameObject _laserPrefab;
     [SerializeField] private float _fireRate = 0.5f;
+
     private float _canFire = -1f;
+    private bool _isTripleShotActive = false;
+    private bool _isSpeedBoostActive = false;
+    private bool _isShieldActive = false;
     
-    [Header("Triple Shot Powerup")]
-    [SerializeField] private bool _isTripleShotActive = false;
-    [SerializeField] private GameObject _tripleShotPrefab;
-
-    [Header("Speed Boost Powerup")]
-    [SerializeField] private bool _isSpeedBoostActive = false;
-
-    // Start is called before the first frame update
     void Start()
     {
         transform.position  = new Vector3(0, 0, 0);
@@ -37,7 +34,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         CalculateMovement();
@@ -98,6 +94,12 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
+        if(_isShieldActive == true)
+        {
+            _isShieldActive = false;
+            return;
+        }
+
         _lives--;
 
         if(_lives < 1)
@@ -131,5 +133,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         _isSpeedBoostActive = false;
         _speed /= _speedMultiplier;
+    }
+
+    public void ShieldActive()
+    {
+        _isShieldActive = true;
     }
 }
