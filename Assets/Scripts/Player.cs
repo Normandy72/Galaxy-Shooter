@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _fireRate = 0.5f;
 
     [SerializeField] private GameObject _shieldVisualizer;
+    [SerializeField] private GameObject _leftEngine, _rightEngine;
 
     private float _canFire = -1f;
     private bool _isTripleShotActive = false;
@@ -111,6 +112,15 @@ public class Player : MonoBehaviour
         }
 
         _lives--;
+
+        if(_lives == 2)
+        {
+            _leftEngine.SetActive(true);
+        }
+        else if(_lives == 1)
+        {
+            _rightEngine.SetActive(true);
+        }
 
         _uiManager.UpdateLives(_lives);
 
