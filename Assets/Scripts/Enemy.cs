@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
             }
 
             _animator.SetTrigger("OnEnemyDeath");
-            _speed = 0;
+            _speed = 0f;
             Destroy(this.gameObject, 2.8f);
         }
 
@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
             }         
 
             _animator.SetTrigger("OnEnemyDeath");
-            _speed = 0;
+            _speed = 0f;
             Destroy(this.gameObject, 2.8f);
         }
     }
